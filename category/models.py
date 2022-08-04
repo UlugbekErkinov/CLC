@@ -23,8 +23,8 @@ class Employer(BaseModel):
 
 class Vacancy(BaseModel):
     title = models.CharField(max_length=255, blank=True, default=False)
-    company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name="company")
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="category")
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name="company")
     employer = models.ForeignKey(Employer, on_delete=models.CASCADE, related_name="employer")
     salary = models.PositiveIntegerField(default=False)
 
