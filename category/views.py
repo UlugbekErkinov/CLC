@@ -20,8 +20,8 @@ from .serializer import VacancySerializer, CategorySerializer, EmployerSerialize
 
 class VacancyListView(generics.ListAPIView):
     
-    # @method_decorator(cache_page(60*60*2))
-    # @method_decorator(vary_on_headers("Authorization",))
+    @method_decorator(cache_page(60*60*2))
+    @method_decorator(vary_on_headers("Authorization",))
     def get(self, *args, **kwargs):
         V = Vacancy.objects.count()
         E = Employer.objects.count()
